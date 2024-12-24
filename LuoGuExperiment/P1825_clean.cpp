@@ -8,7 +8,7 @@ int N, M;
 vector<vector<char>> *Map; // 原始地图
 vector<int> startloc;
 vector<vector<bool>> *visited;
-vector<vector<int>> *transLocList_2 = new vector<vector<int>>(52, vector<int>(2, -1)); // 记录所有传送门 <- 一个简易Hash
+vector<vector<int>> *transLocList_2 = new vector<vector<int>>(52, vector<int>(2, -1)); // 记录所有传送门 <- 一个简易Hash <- 这里没法用unordered_map
 
 vector<int> dx = {0, 0, 1, -1};
 vector<int> dy = {1, -1, 0, 0};
@@ -103,7 +103,7 @@ void bfs()
     int newchild = 0;
     queue<Node> step;
     step.push(Node{startloc[0], startloc[1], 0});
-    // (*visited)[startloc[0]][startloc[1]] = 1;
+    (*visited)[startloc[0]][startloc[1]] = 1;
     while (!step.empty())
     {
         newchild = 0;
@@ -128,6 +128,7 @@ void bfs()
                 cur.x = nloc[0];
                 cur.y = nloc[1];
             }
+            
             for (int i = 0; i < 4; i++)
             {
                 int nx = cur.x + dx[i];
