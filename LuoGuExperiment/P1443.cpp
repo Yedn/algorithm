@@ -88,10 +88,6 @@ void PrintAns()
     {
         for (int j = 0; j < m; j++)
         {
-            // if ((*ans)[i][j] == INT_MAX)
-            // {
-            //     (*ans)[i][j] = -1;
-            // }
             printf("%-4d ", (*ans)[i][j]);
         }
         cout << endl;
