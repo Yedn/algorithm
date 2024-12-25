@@ -52,7 +52,7 @@ void dfs(double x, double y, double d)
         if (!haveWalk[i]) // 没去过的cheese
         {
             // double tem = (d + sqrt((cheese[i][0] - x) * (cheese[i][0] - x) + (cheese[i][1] - y) * (cheese[i][1] - y)));
-            double tem = floor((d + sqrt((cheese[i][0] - x) * (cheese[i][0] - x) + (cheese[i][1] - y) * (cheese[i][1] - y))) * 1000) / 1000;
+            double tem = floor((d + sqrt((cheese[i][0] - x) * (cheese[i][0] - x) + (cheese[i][1] - y) * (cheese[i][1] - y))) * 1000) / 1000; //最多保留三位小数
             if(tem < ans)
             {
                 haveWalk[i] = true;
@@ -61,10 +61,6 @@ void dfs(double x, double y, double d)
                 haveWalk[i] = false;
                 step--;
             }
-        }
-        else
-        {
-            continue;
         }
     }
     return;
