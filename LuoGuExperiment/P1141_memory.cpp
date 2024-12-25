@@ -27,7 +27,7 @@ int main()
         cin >> tem;
         for (int j = 0; j < n; j++)
         {
-            map[i][j] = (tem[j] - '0')?true:false;
+            map[i][j] = (tem[j] - '0');
         }
     }
     int x, y;
@@ -57,13 +57,14 @@ void dfs_memory(int x, int y, int canwalk, int count)
     }
     path[x][y] = count;
     (*ans)[count]++;
+    canwalk = !canwalk;
     for (int i = 0; i < 4; i++)
     {
         int nx = x+dx[i];
         int ny = y+dy[i];
-        if (nx >= 0 && nx < n && ny >= 0 && ny < n )// && map[nx][ny] == (!canwalk)
+        if (nx >= 0 && nx < n && ny >= 0 && map[nx][ny] == canwalk && ny < n )// 
         {
-            dfs_memory(nx, ny, !canwalk, count);
+            dfs_memory(nx, ny, canwalk, count);
         }
     }
     return ;
